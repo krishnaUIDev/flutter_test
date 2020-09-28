@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 void main() => runApp(MyApp());
 
-// inheritance
 //Scaffold is the entire widget holder
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var quesionIndex = 0;
-  void answerQuestion() {
+// if we use _ then widget turn to private widget or else it will public
+class _MyAppState extends State<MyApp> {
+  var _quesionIndex = 0;
+  void _answerQuestion() {
     setState(() {
-      quesionIndex = quesionIndex + 1;
+      _quesionIndex = _quesionIndex + 1;
     });
   }
 
@@ -32,26 +33,26 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(
-              questions[quesionIndex],
+            Question(
+              questions[_quesionIndex],
             ),
             RaisedButton(
               child: Text(
                 'Answer1',
               ),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
             RaisedButton(
               child: Text(
                 'Answer2',
               ),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
             RaisedButton(
               child: Text(
                 'Answer 3',
               ),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
           ],
         ),
